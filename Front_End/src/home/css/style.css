@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+.dropdown-menu{
+    background-color: #212529;;
+    color: #fff;
+}
+.dropdown-menu > li > a{
+    color: #fff;
+}
+nav > a{
+    text-decoration: none;
+    color: #000;
+    transition: all ease-in-out 400ms;
+}
+nav > a:hover{
+    color: rgb(37, 221, 160);
+}
