@@ -1,4 +1,4 @@
-var options = {
+var options1 = {
     chart: {
       type: 'line'
     },
@@ -11,12 +11,12 @@ var options = {
     }
   }
   
-  var chart = new ApexCharts(document.querySelector("#chart1"), options);
+  var chart = new ApexCharts(document.querySelector("#chart1"), options1);
   
   chart.render();
 
   /********* */
-  var options = {
+  var options2 = {
     chart: {
       height: 280,
       type: "area"
@@ -52,6 +52,107 @@ var options = {
     }
   };
   
-  var chart = new ApexCharts(document.querySelector("#chart2"), options);
+  var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
   
-  chart.render();
+  chart2.render();
+
+  /****** */
+  
+  var options3 = {
+    chart: {
+        height: 250,
+        type: 'radialBar',
+    },
+    series: [70],
+    labels: ['surgery'],
+  }
+
+  var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
+  
+  chart3.render();
+
+  /*chart4*/
+  var options4 = {
+    chart: {
+      height: 170,
+      type: "radialBar"
+    },
+    
+    series: [78],
+    
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          margin: 15,
+          size: "70%"
+        },
+       
+        dataLabels: {
+          showOn: "always",
+          name: {
+            offsetY: -10,
+            show: true,
+            color: "#888",
+            fontSize: "13px"
+          },
+          value: {
+            color: "#111",
+            fontSize: "25px",
+            show: true
+          }
+        }
+      }
+    },
+  
+    stroke: {
+      lineCap: "round",
+    },
+    labels: ["Patients"]
+  };
+  
+  var chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
+  
+  chart4.render();
+
+  /*chart5*/
+  var options5 = {
+    chart: {
+      height: 170,
+      type: "radialBar"
+    },
+    
+    series: [84],
+    
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          margin: 15,
+          size: "70%"
+        },
+       
+        dataLabels: {
+          showOn: "always",
+          name: {
+            offsetY: -10,
+            show: true,
+            color: "#888",
+            fontSize: "13px"
+          },
+          value: {
+            color: "#111",
+            fontSize: "25px",
+            show: true
+          }
+        }
+      }
+    },
+  
+    stroke: {
+      lineCap: "round",
+    },
+    labels: ["Growth"]
+  };
+  
+  var chart5 = new ApexCharts(document.querySelector("#chart5"), options5);
+  
+  chart5.render();
