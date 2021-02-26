@@ -1,3 +1,4 @@
+
 var options1 = {
     chart: {
       type: 'line'
@@ -64,7 +65,7 @@ var options1 = {
         type: 'radialBar',
     },
     series: [70],
-    labels: ['surgery'],
+    labels: ['patients'],
   }
 
   var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
@@ -107,7 +108,7 @@ var options1 = {
     stroke: {
       lineCap: "round",
     },
-    labels: ["Patients"]
+    labels: ["tests"]
   };
   
   var chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
@@ -150,7 +151,7 @@ var options1 = {
     stroke: {
       lineCap: "round",
     },
-    labels: ["Growth"]
+    labels: ["treatement"]
   };
   
   var chart5 = new ApexCharts(document.querySelector("#chart5"), options5);

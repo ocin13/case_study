@@ -20,6 +20,9 @@ nav > a{
     color: #000;
     transition: all ease-in-out 400ms;
 }
+nav > a > i{
+    font-size: 1.6em;
+}
 nav > a:hover{
     color: rgb(37, 221, 160);
 }
@@ -68,8 +71,19 @@ nav > a:hover{
 }
 .side-menu{
     position: fixed;
+    transition: all ease-in-out 600ms;
 }
 .doctors-list, .appointement-list, .newPatientList{
     overflow-y: scroll;
     height: 50vh;
+}
+#sideMenuBtn{
+    text-decoration: none;
+    color: #fff;
+}
+#sideMenuBtn i{
+    font-size: 1.6em;
+}
+#dahsboard{
+    transition: all ease-in-out 1000ms;
 }
