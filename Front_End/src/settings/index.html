@@ -58,16 +58,73 @@
                 </nav>
                 <!--********end_sidemenu*************-->
             </div>
-            <div class="col-12 col-md-10 py-5 dashboard">
+            <div class="col-10 col-md-10 mx-auto p-md-5 dashboard">
               <div class="row">
-                <div class="col-6 col-md-10">
-                  <h3>doctors</h3>
-                </div>
-                <div class="col-6 col-md-2 ">
-                  <button class="btn btn-success py-2 px-3" id="addDocBtn" onclick="window.location='./addDoctorForm.html'"><i class="fa fa-plus"></i> Add Doctor</button>
-                </div>
-              </div>
-              <div class="row doctorsList"></div>
+                <h2>company settings</h2>
+            </div>
+            <div class="row py-5">
+                <form action="submit" class="row">
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="companyName" class="form-label">company name</label>
+                        <input type="text" class="form-control" id="companyName"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="ceoName" class="form-label">contact person</label>
+                        <input type="text" class="form-control" id="ceoName"  required/>
+                    </div>
+
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="companyPhone" class="form-label">phone number</label>
+                        <input type="tel" class="form-control" id="companyPhone"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeEmail" class="form-label">email</label>
+                        <input type="email" class="form-control" id="employeeEmail"  required/>
+                    </div>
+
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="companyMobile" class="form-label">mobile number</label>
+                        <input type="tel" class="form-control" id="companyMobile"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="companyFax" class="form-label">fax number</label>
+                        <input type="email" class="form-control" id="companyFax"  required/>
+                    </div>
+
+                
+
+
+                    <div class="col-12 col-md-12 py-2">
+                        <label for="employeeAdress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="employeeAdress" placeholder="1234 Main St" required>
+                    </div>
+                      <div class="col-12 col-md-3 py-2">
+                        <label for="companyCountry" class="form-label">country</label>
+                        <input type="text" class="form-control" id="companyCountry" placeholder="USA" required>
+                      </div>
+                      <div class="col-12 col-md-3 py-2">
+                        <label for="companyCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="companyCity" required>
+                      </div>
+                      <div class="col-6 col-md-3 py-2">
+                        <label for="companyState" class="form-label">State</label>
+                        <input type="text" id="companyState" class="form-control"  required/>
+                      </div>
+                      <div class="col-6 col-md-3 py-2">
+                        <label for="companyZip" class="form-label">Zip</label>
+                        <input type="number" class="form-control" id="companyZip" required>
+                      </div>
+
+                      <div class="col-12 col-md-12 py-2">
+                        <label for="companyWebsite" class="form-label">web site</label>
+                        <input type="text" class="form-control" id="companyWebsite" placeholder="HTTPS://WWW.NANOCARE.COM" required>
+                      </div>
+                      
+                      
+                      <div class="col-12 py-3 text-center">
+                        <button type="submit" class="btn btn-primary py-2 px-5" id="saveBtn"><i class="fa fa-hdd"></i>    Save</button>
+                      </div>
+                </form>
             </div>
         </div>  
         

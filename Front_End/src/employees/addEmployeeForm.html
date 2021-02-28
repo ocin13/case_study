@@ -7,7 +7,7 @@
     <!--css files refrences-->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="../../shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./style/style.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
     <link href="../home/css/navbar.css" rel="stylesheet" />
     <title>NanoCare</title>
 </head>
@@ -60,44 +60,44 @@
             </div>
             <div class="col-10 col-md-10 mx-auto p-md-5 dashboard">
               <div class="row">
-                <h2>add Patient</h2>
+                <h2>add employee</h2>
             </div>
             <div class="row py-5">
                 <form action="submit" class="row">
                     <div class="col-12 col-md-6 py-2">
-                        <label for="PatientFirstName" class="form-label">first name</label>
-                        <input type="text" class="form-control" id="PatientFirstName"  required/>
+                        <label for="employeeFirstName" class="form-label">first name</label>
+                        <input type="text" class="form-control" id="employeeFirstName"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
-                        <label for="PatientLastName" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="PatientLastName"  required/>
-                    </div>
-
-                    <div class="col-12 col-md-6 py-2">
-                        <label for="PatientUserName" class="form-label">user name</label>
-                        <input type="text" class="form-control" id="PatientUsername"  required/>
-                    </div>
-                    <div class="col-12 col-md-6 py-2">
-                        <label for="PatientEmail" class="form-label">email</label>
-                        <input type="email" class="form-control" id="PatientEmail"  required/>
+                        <label for="employeeLastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="employeeLastName"  required/>
                     </div>
 
                     <div class="col-12 col-md-6 py-2">
-                        <label for="PatientPassword" class="form-label">password</label>
-                        <input type="text" class="form-control" id="PatientPassword"  required/>
+                        <label for="employeeUserName" class="form-label">user name</label>
+                        <input type="text" class="form-control" id="employeeUsername"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
-                        <label for="PatientConfirmPassword" class="form-label">confirm password</label>
-                        <input type="text" class="form-control" id="PatientConfirmPassword"  required/>
+                        <label for="employeeEmail" class="form-label">email</label>
+                        <input type="email" class="form-control" id="employeeEmail"  required/>
                     </div>
 
                     <div class="col-12 col-md-6 py-2">
-                        <label for="PatientBirthDate" class="form-label">birth date</label>
-                        <input type="date" class="form-control" id="PatientBirthDate"  required/>
+                        <label for="employeePassword" class="form-label">password</label>
+                        <input type="text" class="form-control" id="employeePassword"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
-                        <label for="PatientGender" class="form-label">gender</label>
-                        <select class="form-select" aria-label="Select Gender" id="PatientGender">
+                        <label for="employeeConfirmPassword" class="form-label">confirm password</label>
+                        <input type="text" class="form-control" id="employeeConfirmPassword"  required/>
+                    </div>
+
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeBirthDate" class="form-label">birth date</label>
+                        <input type="date" class="form-control" id="employeeBirthDate"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeegender" class="form-label">gender</label>
+                        <select class="form-select" aria-label="Select Gender" id="employeeGender">
                             <option selected>Select Gender</option>
                             <option value="male">male</option>
                             <option value="femele">femele</option>
@@ -106,43 +106,43 @@
                     </div>
 
                     <div class="col-12 col-md-6 py-2">
-                        <label for="PatientAdress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="PatientAdress" placeholder="1234 Main St" required>
+                        <label for="employeeAdress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="employeeAdress" placeholder="1234 Main St" required>
                     </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="inputAddress2" class="form-label">Address 2</label>
                         <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
-                        <label for="PatientCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="PatientCity" required>
+                        <label for="employeeCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="employeeCity" required>
                       </div>
                       <div class="col-6 col-md-4 py-2">
-                        <label for="PatientState" class="form-label">State</label>
-                        <input type="text" id="PatientState" class="form-control"  required/>
+                        <label for="employeeState" class="form-label">State</label>
+                        <input type="text" id="employeeState" class="form-control"  required/>
                       </div>
                       <div class="col-6 col-md-2 py-2">
-                        <label for="PatientZip" class="form-label">Zip</label>
-                        <input type="number" class="form-control" id="PatientZip" required>
+                        <label for="employeeZip" class="form-label">Zip</label>
+                        <input type="number" class="form-control" id="employeeZip" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
-                        <label for="PatientPhone" class="form-label">phone</label>
-                        <input type="tel" class="form-control" id="PatientPhone"  required/>
+                        <label for="employeePhone" class="form-label">phone</label>
+                        <input type="tel" class="form-control" id="employeePhone"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
-                        <label for="Patientpicture" class="form-label">profile picture</label>
-                        <input type="file" class="form-control" id="Patientpicture"  required/>
+                        <label for="employeepicture" class="form-label">profile picture</label>
+                        <input type="file" class="form-control" id="employeepicture"  required/>
                     </div>
                       <div class="col-12 py-2">
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" id="acceptCheck">
                           <label class="form-check-label" for="acceptCheck">
-                            confirm the new Patient
+                            confirm the new employee
                           </label>
                         </div>
                       </div>
                       <div class="col-12 py-2">
-                        <button type="submit" class="btn btn-primary" id="registerPatBtn">Register</button>
+                        <button type="submit" class="btn btn-primary" id="confirmEmpBtn">Confirm</button>
                       </div>
                 </form>
             </div>
@@ -156,8 +156,7 @@
     <!--chart maker-->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-    <script src="../home/js/navbar.js"></script>
     <script src="./js/scripts.js"></script>
-    
+    <script src="../home/js/navbar.js"></script>
   </body>
 </html>

@@ -58,16 +58,38 @@
                 </nav>
                 <!--********end_sidemenu*************-->
             </div>
-            <div class="col-12 col-md-10 py-5 dashboard">
+            <div class="col-10 col-md-10 mx-auto p-md-5 dashboard">
               <div class="row">
-                <div class="col-6 col-md-10">
-                  <h3>doctors</h3>
-                </div>
-                <div class="col-6 col-md-2 ">
-                  <button class="btn btn-success py-2 px-3" id="addDocBtn" onclick="window.location='./addDoctorForm.html'"><i class="fa fa-plus"></i> Add Doctor</button>
-                </div>
-              </div>
-              <div class="row doctorsList"></div>
+                <h2>add department</h2>
+            </div>
+            <div class="row py-5">
+                <form action="submit" class="row">
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="departmentId" class="form-label">department Id</label>
+                        <input type="text" class="form-control" id="departmentId"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="departmentName" class="form-label">departement name</label>
+                        <input type="text" class="form-control" id="departmentName"  required/>
+                    </div>
+
+                      <div class="col-12  py-2">
+                        <label for="inputMess" class="form-label">message</label>
+                        <textarea type="text" class="form-control" id="inputMess" placeholder="description"  required></textarea>
+                      </div>
+                      
+                      <div class="col-12 py-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="acceptCheck">
+                          <label class="form-check-label" for="acceptCheck">
+                            confirm the new department
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-12 py-2">
+                        <button type="submit" class="btn btn-primary" id="newDepBtn">Add Departement</button>
+                      </div>
+                </form>
             </div>
         </div>  
         
