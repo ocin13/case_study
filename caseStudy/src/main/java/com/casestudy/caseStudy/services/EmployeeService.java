@@ -12,8 +12,8 @@ public interface EmployeeService {
 	public List<Employee> getAllEmployees();
 	//get specific Employee using id
 	public Employee getEmployeeById(Integer id);
-//	//get specific doctor using the Employee last name
-//	public List<Employee> getEmployeeByLastName(String lastName);
+	//get specific doctor using the Employee last name
+	public List<Employee> getEmployeeByAccountUserName(String username);
 	//update doctor information
 	public boolean updateEmployeeById(Integer id, Employee employee);
 	//delete Employee from the database 

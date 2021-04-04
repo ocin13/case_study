@@ -33,29 +33,30 @@
                   <button class="btn btn-success py-2 px-3" id="backBtn" onclick="window.location='home'"><i class="fa fa-reply"></i> Go Back</button>
                 </div>
               </div>
+              <form method="POST" action="edit_profile">
               <section class="row profile-section p-md-5 py-5">
                 <h3 class="py-4">personal information</h3>
                 <div class="col-5 col-md-2 pt-3">
-                    <img src="../../shared/icons/3022339-hospital/png/002-nurse.png" alt="profile picture" id="profilePicture" class="profilePicture img-fluid" height="150px" width="150px"/>
+                    <img src="/uploads/${profile.getFileName()}" alt="profile picture" id="profilePicture" class="profilePicture img-fluid"  style="border-radius: 50%;height:150px;"/>
                 </div>
                 <div class="col-7 col-md-5">
                     <div class="col-12 py-2">
                         <label for="profileFirstName" class="form-label">first name</label>
-                        <input type="text" class="form-control" id="profileFirstName"  required/>
+                        <input type="text" value="${profile.firstName }" name="firstName" class="form-control" id="profileFirstName"  required/>
                     </div>
                     <div class="col-12  py-2">
                         <label for="profileLastName" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="profileLastName"  required/>
+                        <input type="text" value="${profile.lastName }" name="lastName" class="form-control" id="profileLastName"  required/>
                     </div>
                 </div>
                 <div class="col-12 col-md-5">
                     <div class="col-12  py-2">
                         <label for="profileBirthDate" class="form-label">birth date</label>
-                        <input type="date" class="form-control" id="profileBirthDate"  required/>
+                        <input type="date" value="${profile.dateOfBirth }" name="dateOfBirth" class="form-control" id="profileBirthDate"  required/>
                     </div>
                     <div class="col-12  py-2">
                         <label for="profileGender" class="form-label">gender</label>
-                        <select class="form-select" aria-label="Select Gender" id="profileGender">
+                        <select class="form-select" value="${profile.gender }" name="gender" aria-label="Select Gender" id="profileGender">
                             <option selected>Select Gender</option>
                             <option value="male">male</option>
                             <option value="femele">femele</option>
@@ -68,36 +69,37 @@
                   <h3 class="py-4">conatct information</h3>
                 <div class="col-12 py-2">
                     <label for="profileAdress" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="profileAdress" placeholder="1234 Main St" required>
+                    <input type="text" class="form-control" value="${profile.address.street }" name="street" id="profileAdress" placeholder="1234 Main St" required>
                 </div>
                   <div class="col-12 col-md-6 py-2">
                     <label for="profileApt" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="profileApt" placeholder="Apartment, studio, or floor" required>
+                    <input type="text" class="form-control" value="${profile.address.apt }" name="apt" id="profileApt" placeholder="Apartment, studio, or floor" required>
                   </div>
                   <div class="col-12 col-md-6 py-2">
                     <label for="profileCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="profileCity" required>
+                    <input type="text" class="form-control" name="city" value="${profile.address.city }" id="profileCity" required>
                   </div>
                   <div class="col-6 col-md-6 py-2">
                     <label for="profileState" class="form-label">State</label>
-                    <input type="text" id="profileState" class="form-control"  required/>
+                    <input type="text" id="profileState" name="state" value="${profile.address.state }" class="form-control"  required/>
                   </div>
                   <div class="col-6 col-md-6 py-2">
                     <label for="profileZip" class="form-label">Zip</label>
-                    <input type="number" class="form-control" id="profileZip" required>
+                    <input type="number" class="form-control" name="zip" value="${profile.address.zip }" id="profileZip" required>
                   </div>
                   <div class="col-12 col-md-6 py-2">
                     <label for="profilePhone" class="form-label">phone</label>
-                    <input type="tel" class="form-control" id="profilePhone"  required/>
+                    <input type="tel" class="form-control" name="phone" value="${profile.phone }" id="profilePhone"  required/>
                 </div>
                 <div class="col-12 col-md-6 py-2">
                     <label for="profilePhone" class="form-label">email</label>
-                    <input type="email" class="form-control" id="profilePhone"  required/>
+                    <input type="email" class="form-control" name="email" value="${profile.account.email }" id="profileEmail"  required/>
                 </div>
               </section>
               <div class="col-12 py-4 text-center">
                 <button type="submit" class="btn btn-primary" id="updateBtn"><i class="fa fa-hdd"></i> Save</button>
               </div>
+              </form>
             </div>
         </div>  
         

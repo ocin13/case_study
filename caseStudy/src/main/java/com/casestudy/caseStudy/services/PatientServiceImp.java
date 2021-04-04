@@ -64,16 +64,12 @@ public class PatientServiceImp implements PatientService {
 			System.out.println("patient with id: " + id + " found");
 			if(patient.getFirstName() != null) patientToUpdate.setFirstName(patient.getFirstName());
 			if(patient.getLastName() != null) patientToUpdate.setLastName(patient.getLastName());
-			if(patient.getUserName() != null) patientToUpdate.setUserName(patient.getUserName());
-			if(patient.getPassword()!= null) patientToUpdate.setPassword(patient.getPassword());
 			if(patient.getDateOfBirth() != null) patientToUpdate.setDateOfBirth(patient.getDateOfBirth());
 			if(patient.getGender() != null) patientToUpdate.setGender(patient.getGender());
-			if(patient.getApt()!= null) patientToUpdate.setApt(patient.getApt());
-			if(patient.getStreet() != null) patientToUpdate.setStreet(patient.getStreet());
-			if(patient.getCity()!= null) patientToUpdate.setCity(patient.getCity());
-			if(patient.getState() != null) patientToUpdate.setState(patient.getState());
 			if(patient.getPhone() != null) patientToUpdate.setPhone(patient.getPhone());
-			if(patient.getEmail() != null) patientToUpdate.setEmail(patient.getEmail());
+			if(patient.getAccount() != null) patientToUpdate.setAccount(patient.getAccount());
+			if(patient.getAddress() != null) patientToUpdate.setAddress(patient.getAddress());
+			
 			pr.save(patientToUpdate);
 			status = true;
 		}else {
@@ -96,6 +92,11 @@ public class PatientServiceImp implements PatientService {
 		}finally {
 			return status;
 		}
+	}
+
+	@Override
+	public List<Patient> getPatientByUserName(String username) {
+		return pr.findPatientByAccountUserName(username);
 	}
 	
 }

@@ -29,12 +29,12 @@
                 <ul class="navbar-nav">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="/icons/3022339-hospital/png/050-surgeon.png" width="25px" height="25px" style="border-radius: 50%;"/>
+                      <img src="/uploads/${profile.getFileName()}" width="25px" height="25px" style="border-radius: 50%;"/>
                       <c:out value="${pageContext.request.remoteUser}"/>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a style="color:black;" class="dropdown-item" href="profile">my profile</a></li>
-                      <li><a style="color:black;" class="dropdown-item" href="edit_profile">edit profile</a></li>
+                      <li><a style="color:black;" class="dropdown-item" href="profile">edit profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a style="color:black;" class="dropdown-item" href="logout">log out</a></li>
                     </ul>

@@ -25,9 +25,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.casestudy.caseStudy.entityModels.Address;
 import com.casestudy.caseStudy.entityModels.Doctor;
+import com.casestudy.caseStudy.entityModels.User;
+import com.casestudy.caseStudy.services.AddressServiceImp;
 import com.casestudy.caseStudy.services.DoctorService;
 import com.casestudy.caseStudy.services.DoctorServiceImp;
+import com.casestudy.caseStudy.services.UserServiceImp;
 
 
 
@@ -40,6 +44,10 @@ public class DoctorsController {
 	
 	@Autowired
 	DoctorServiceImp ds;
+	@Autowired
+	UserServiceImp us;
+	@Autowired
+	AddressServiceImp as;
 	
 	//display doctors page
 		@RequestMapping("/doctors")
@@ -88,21 +96,22 @@ public class DoctorsController {
 				doctor.setFirstName(firstName);
 				doctor.setLastName(lastName);
 				doctor.setSpeciality(speciality);
-				doctor.setUserName(userName);
-				doctor.setEmail(email);
-				doctor.setPassword(password);
 				doctor.setDateOfBirth(dateOfBirth);
 				doctor.setGender(gender);
-				doctor.setStreet(street);
-				doctor.setApt(apt);
-				doctor.setCity(city);
-				doctor.setState(state);
-				doctor.setZip(zip);
 				doctor.setPhone(phone);
 				doctor.setFileName(fileName);
 				doctor.setFilePath(filePath);
 				doctor.setFileType(fileType);
 				doctor.setFileSize(fileSize);
+				
+				User newUser = new User(userName,email,password,true,"DOCTOR");
+				Address newAddress = new Address(street,apt,city,state,zip);
+				as.addNewAddress(newAddress);
+				us.addNewUser(newUser);
+				doctor.setAccount(newUser);
+				doctor.setAddress(newAddress);
+				
+				
 				
 				boolean status = ds.addNewDoctor(doctor);
 				if (status) {
@@ -144,8 +153,27 @@ public class DoctorsController {
 		
 		//register new updated doctor information
 		@RequestMapping(value = "/editDoctor", method = RequestMethod.POST)
-		public ModelAndView editDoctor(@ModelAttribute Doctor doctor) {
+		public ModelAndView editDoctor(@RequestParam("docId") Integer docId,@RequestParam("firstName") String firstName, @RequestParam("lastName")  String lastName, @RequestParam("speciality") String speciality,
+				@RequestParam("userName")  String userName,@RequestParam("email")  String email,
+				@RequestParam("password")  String password,@RequestParam("dateOfBirth")  String dateOfBirth,
+				@RequestParam("gender")  String gender,@RequestParam("street")  String street,
+				@RequestParam("apt")  String apt,@RequestParam("city")  String city,
+				@RequestParam("state")  String state,@RequestParam("zip")  Integer zip,
+				@RequestParam("phone")  Long phone) {
 			ModelAndView mav = new ModelAndView("doctor_form");
+			Doctor doctor = new Doctor();
+			doctor.setDocId(docId);
+			doctor.setFirstName(firstName);
+			doctor.setLastName(lastName);
+			doctor.setSpeciality(speciality);
+			doctor.setDateOfBirth(dateOfBirth);
+			doctor.setGender(gender);
+			doctor.setPhone(phone);
+			
+			User newUser = new User(userName,email,password,true,"DOCTOR");
+			Address newAddress = new Address(street,apt,city,state,zip);
+			doctor.setAccount(newUser);
+			doctor.setAddress(newAddress);
 			ds.updateDoctorById(doctor.getDocId(), doctor);
 			String message = "Doctor updated successfully";
 			mav.addObject("message", message);

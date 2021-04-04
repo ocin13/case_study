@@ -70,16 +70,16 @@
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="doctorUserName" class="form-label">user name</label>
-                        <input type="text" name="userName" value="${ doctor.userName }"  class="form-control" id="doctorUsername"/>
+                        <input type="text" name="userName" value="${ doctor.account.userName }"  class="form-control" id="doctorUsername"/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
                         <label for="doctorEmail" class="form-label">email</label>
-                        <input type="email" name="email" value="${ doctor.email }"  class="form-control" id="doctorEmail"  required/>
+                        <input type="email" name="email" value="${ doctor.account.email }"  class="form-control" id="doctorEmail"  required/>
                     </div>
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="doctorPassword" class="form-label">password</label>
-                        <input type="text" name="password" value="${ doctor.password }"  class="form-control" id="doctorPassword"  required/>
+                        <input type="text" name="password" value="${ doctor.account.password }"  class="form-control" id="doctorPassword"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
                         <label for="doctorConfirmPassword" class="form-label">confirm password</label>
@@ -102,23 +102,23 @@
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="doctorAdress" class="form-label">Address</label>
-                        <input type="text" name="street" value="${ doctor.street }"  class="form-control" id="doctorAdress" placeholder="1234 Main St" required>
+                        <input type="text" name="street" value="${ doctor.address.street }"  class="form-control" id="doctorAdress" placeholder="1234 Main St" required>
                     </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="inputAddress2" class="form-label">Address 2</label>
-                        <input type="text" name="apt" value="${ doctor.apt }"  class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+                        <input type="text" name="apt" value="${ doctor.address.apt }"  class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="doctorCity" class="form-label">City</label>
-                        <input type="text" name="city" value="${ doctor.city }"  class="form-control" id="doctorCity" required>
+                        <input type="text" name="city" value="${ doctor.address.city }"  class="form-control" id="doctorCity" required>
                       </div>
                       <div class="col-6 col-md-4 py-2">
                         <label for="doctorState" class="form-label">State</label>
-                        <input type="text" name="state" value="${ doctor.state }"  id="doctorState" class="form-control"  required/>
+                        <input type="text" name="state" value="${ doctor.address.state }"  id="doctorState" class="form-control"  required/>
                       </div>
                       <div class="col-6 col-md-2 py-2">
                         <label for="doctorZip" class="form-label">Zip</label>
-                        <input type="number" name="zip" value="${ doctor.zip }"  class="form-control" id="doctorZip" required>
+                        <input type="number" name="zip" value="${ doctor.address.zip }"  class="form-control" id="doctorZip" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="doctorPhone" class="form-label">phone</label>

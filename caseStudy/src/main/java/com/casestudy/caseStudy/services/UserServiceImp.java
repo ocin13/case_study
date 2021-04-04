@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.casestudy.caseStudy.entityModels.Address;
 import com.casestudy.caseStudy.entityModels.Patient;
 import com.casestudy.caseStudy.entityModels.User;
 import com.casestudy.caseStudy.repository.UserRepository;
@@ -80,6 +81,25 @@ public class UserServiceImp implements UserService{
 		}finally {
 			return status;
 		}
+	}
+
+	@Override
+	public User getUserById(Integer id) {
+		// get user using id value
+		User foundUser = ur.getOne(id);
+		if(foundUser  != null) {
+			System.out.println("user with id: " + id + " found");
+		}else {
+			System.out.println("user with id: " + id + " not found");
+		}
+		
+		return foundUser ;
+	}
+
+	@Override
+	public User getUserByUserNmae(String username) {
+		//get user by user name
+		return ur.getUserByUsername(username);
 	}
 
 }

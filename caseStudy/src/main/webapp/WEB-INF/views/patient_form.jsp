@@ -53,16 +53,16 @@
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="PatientUserName" class="form-label">user name</label>
-                        <input type="text" name="userName" value="${patient.userName }" class="form-control" id="PatientUsername"  required/>
+                        <input type="text" name="userName" value="${patient.account.getUserName() }" class="form-control" id="PatientUsername"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
                         <label for="PatientEmail" class="form-label">email</label>
-                        <input type="email" name="email" value="${patient.email }" class="form-control" id="PatientEmail"  required/>
+                        <input type="email" name="email" value="${patient.account.getEmail() }" class="form-control" id="PatientEmail"  required/>
                     </div>
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="PatientPassword" class="form-label">password</label>
-                        <input type="text" name="password" value="${patient.password }" class="form-control" id="PatientPassword"  required/>
+                        <input type="text" name="password" value="${patient.account.getPassword() }" class="form-control" id="PatientPassword"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
                         <label for="PatientConfirmPassword" class="form-label">confirm password</label>
@@ -85,23 +85,23 @@
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="PatientAdress" class="form-label">Address</label>
-                        <input type="text" name="street" value="${patient.street }" class="form-control" id="PatientAdress" placeholder="1234 Main St" required>
+                        <input type="text" name="street" value="${patient.address.getStreet() }" class="form-control" id="PatientAdress" placeholder="1234 Main St" required>
                     </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="inputAddress2" class="form-label">Address 2</label>
-                        <input type="text" name="apt" value="${patient.apt }" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+                        <input type="text" name="apt" value="${patient.address.getApt() }" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="PatientCity" class="form-label">City</label>
-                        <input type="text" name="city" value="${patient.city }" class="form-control" id="PatientCity" required>
+                        <input type="text" name="city" value="${patient.address.getCity() }" class="form-control" id="PatientCity" required>
                       </div>
                       <div class="col-6 col-md-4 py-2">
                         <label for="PatientState" class="form-label">State</label>
-                        <input type="text" name="state" value="${patient.state }" id="PatientState" class="form-control"  required/>
+                        <input type="text" name="state" value="${patient.address.getState() }" id="PatientState" class="form-control"  required/>
                       </div>
                       <div class="col-6 col-md-2 py-2">
                         <label for="PatientZip" class="form-label">Zip</label>
-                        <input type="number" name="zip" value="${patient.zip }" class="form-control" id="PatientZip" required>
+                        <input type="number" name="zip" value="${patient.address.getZip() }" class="form-control" id="PatientZip" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="PatientPhone" class="form-label">phone</label>

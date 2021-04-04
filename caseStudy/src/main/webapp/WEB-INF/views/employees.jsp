@@ -44,8 +44,8 @@
 					      <th scope="col">Last Name</th>
 					      <th scope="col">Email</th>
 					      <th scope="col">Phone number</th>
-					      <th scope="col">Edit Patient</th>
-					      <th scope="col">Delete Patient</th>
+					      <th scope="col">Edit Employee</th>
+					      <th scope="col">Delete Employee</th>
 					    </tr>
 					  </thead>
 					  <tbody>
@@ -54,7 +54,7 @@
 						      <th scope="row">${emp.empId }</th>
 						      <td>${emp.firstName}</td>
 						      <td>${emp.lastName}</td>
-						      <td>${emp.email}</td>
+						      <td>${emp.account.email}</td>
 						      <td>${emp.phone}</td>
 						      <td><a style="color:black;text-decoration:none;" href="${request.getContextPath()}editEmployee${emp.empId}"><i class="fa fa-pencil"></i> Edit</a></td>
 						      <td><a style="color:black;text-decoration:none;" href="${request.getContextPath()}deleteEmployee${emp.empId}"><i class="fa fa-trash"></i> Delete</a></td>

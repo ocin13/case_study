@@ -47,18 +47,14 @@
             <!-- ************************* -->
                     <div class="col-12 col-md-6 py-2">
                         <label for="appointementId" class="form-label">appointment Id</label>
-                        <input type="text" name="aptId" value="${appointment.aptId }" class="form-control" id="appointementId"  />
-                    </div>
-                    <div class="col-12 col-md-6 py-2">
-                        <label for="appointementpatName" class="form-label">patient last name</label>
-                        <input type="text" name="patientName"  value="${ appointment.patientName}" class="form-control" id="appointementpatName"  required/>
+                        <input type="hidden" name="aptId" value="${appointment.aptId }" class="form-control" id="appointementId"  />
                     </div>
 					
                     <div class="col-12 col-md-6 py-2">
                         <label for="appointementDocName" class="form-label">doctor name</label>
-                        <select name="doctorName" class="form-select"  id="appointementDocName"   required>
-					        <c:forEach items="${doctorsList}" var="doc">
-					            <option value="${doc.lastName}">${doc.lastName} ${doc.firstName }</option>
+                        <select name="doctorId" class="form-select"  id="appointementDocName"   required>
+					        <c:forEach items="${doctorsList}" var="doctor">
+					            <option value="${doctor.docId}">${doctor.lastName} ${doctor.firstName }</option>
 					        </c:forEach>
 					    </select>
                     </div>
@@ -83,21 +79,10 @@
                         <input type="date" name="date" value="${appointment.date }" class="form-control" id="appointementDate"  required/>
                     </div>
 
-                    <div class="col-12 col-md-6 py-2">
-                        <label for="appointementEmail" class="form-label"> email Address</label>
-                        <input type="email" name="email" value="${appointment.email }"  class="form-control" id="appointementEmail" placeholder="example@mail.com" required>
-                    </div>
-                    <div class="col-12 col-md-6 py-2">
-                        <label for="appointementPhone" class="form-label">phone</label>
-                        <input type="tel" name="phone" value="${appointment.phone }" class="form-control" id="appointementPhone"  required/>
-                    </div>
-                      <div class="col-12  py-2">
-                        <label for="inputMess" class="form-label">message</label>
-                        <input type="text" name="message" value="${appointment.message }" class="form-control" id="inputMess" placeholder="fever,cough,pain"  required>
-                      </div>
+              
                       
                   
-                      <div class="col-12 py-2">
+                   <div class="col-12 py-2">
                         <button type="submit" class="btn btn-primary" id="bookAppBtn">Book Appointement</button>
                       </div>
                 </form>

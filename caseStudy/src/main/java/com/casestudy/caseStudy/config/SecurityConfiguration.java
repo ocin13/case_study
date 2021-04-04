@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         				"/patients","addPatient","editPatient/*", "deletePatient/*",
         				"/settings","deleteAppointment","editAppointment", "/payments","/accounts").hasAuthority("ADMIN")
                 .antMatchers("/home","/profile","/editProfile",
-                		"/appointments","addAppointment").hasAnyAuthority("ADMIN", "USER", "DOCTOR")
+                		"/appointments","addAppointment").hasAnyAuthority("ADMIN", "USER", "DOCTOR","PATIENT")
                 .antMatchers("/", "/login","/logout").permitAll()
                 .and()
 		        .formLogin().loginPage("/login")

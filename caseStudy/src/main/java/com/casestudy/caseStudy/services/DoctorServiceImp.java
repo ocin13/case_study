@@ -82,15 +82,10 @@ public class DoctorServiceImp implements DoctorService{
 			if(doctor.getFirstName() != null) updatedDoctor.setFileName(doctor.getFirstName());
 			if(doctor.getLastName() != null) updatedDoctor.setLastName(doctor.getLastName());
 			if(doctor.getSpeciality() != null) updatedDoctor.setSpeciality(doctor.getSpeciality());
-			if(doctor.getUserName() != null) updatedDoctor.setUserName(doctor.getUserName());
-			if(doctor.getEmail() != null) updatedDoctor.setEmail(doctor.getEmail());
-			if(doctor.getPassword() != null) updatedDoctor.setPassword(doctor.getPassword());
-			if(doctor.getApt() != null) updatedDoctor.setApt(doctor.getApt());
-			if(doctor.getStreet() != null) updatedDoctor.setStreet(doctor.getStreet());
-			if(doctor.getCity() != null) updatedDoctor.setCity(doctor.getCity());
-			if(doctor.getState() != null) updatedDoctor.setState(doctor.getState());
 			if(doctor.getPhone() != null) updatedDoctor.setPhone(doctor.getPhone());
 			if(doctor.getGender() != null) updatedDoctor.setGender(doctor.getGender());
+			if(doctor.getAccount() != null) updatedDoctor.setAccount(doctor.getAccount());
+			if(doctor.getAddress() != null) updatedDoctor.setAddress(doctor.getAddress());
 			updatedDoctor.setFileName(updatedDoctor.getFileName());
 			updatedDoctor.setFilePath(updatedDoctor.getFilePath());
 			updatedDoctor.setFileSize(updatedDoctor.getFileSize());
@@ -115,6 +110,11 @@ public class DoctorServiceImp implements DoctorService{
 			status = false;
 		}
 		return status;
+	}
+
+	@Override
+	public List<Doctor> getDoctorByUserName(String username) {
+		return dr.findDoctorByAccountUserName(username);
 	}
 
 }

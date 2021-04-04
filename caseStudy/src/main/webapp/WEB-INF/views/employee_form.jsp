@@ -61,16 +61,16 @@
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="UserName" class="form-label">user name</label>
-                        <input type="text" name="userName" value="${ employee.userName }"  class="form-control" id="Username"/>
+                        <input type="text" name="userName" value="${ employee.account.userName }"  class="form-control" id="Username"/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
                         <label for="Email" class="form-label">email</label>
-                        <input type="email" name="email" value="${ employee.email }"  class="form-control" id="Email"  required/>
+                        <input type="email" name="email" value="${ employee.account.email }"  class="form-control" id="Email"  required/>
                     </div>
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="Password" class="form-label">password</label>
-                        <input type="text" name="password" value="${ employee.password }"  class="form-control" id="Password"  required/>
+                        <input type="text" name="password" value="${ employee.account.password }"  class="form-control" id="Password"  required/>
                     </div>
                     <div class="col-12 col-md-6 py-2">
                         <label for="ConfirmPassword" class="form-label">confirm password</label>
@@ -93,23 +93,23 @@
 
                     <div class="col-12 col-md-6 py-2">
                         <label for="Adress" class="form-label">Address</label>
-                        <input type="text" name="street" value="${ employee.street }"  class="form-control" id="Adress" placeholder="1234 Main St" required>
+                        <input type="text" name="street" value="${ employee.address.street }"  class="form-control" id="Adress" placeholder="1234 Main St" required>
                     </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="inputAddress2" class="form-label">Address 2</label>
-                        <input type="text" name="apt" value="${ employee.apt }"  class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+                        <input type="text" name="apt" value="${ employee.address.apt }"  class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="City" class="form-label">City</label>
-                        <input type="text" name="city" value="${ employee.city }"  class="form-control" id="City" required>
+                        <input type="text" name="city" value="${ employee.address.city }"  class="form-control" id="City" required>
                       </div>
                       <div class="col-6 col-md-4 py-2">
                         <label for="State" class="form-label">State</label>
-                        <input type="text" name="state" value="${ employee.state }"  id="State" class="form-control"  required/>
+                        <input type="text" name="state" value="${ employee.address.state }"  id="State" class="form-control"  required/>
                       </div>
                       <div class="col-6 col-md-2 py-2">
                         <label for="Zip" class="form-label">Zip</label>
-                        <input type="number" name="zip" value="${ employee.zip }"  class="form-control" id="Zip" required>
+                        <input type="number" name="zip" value="${ employee.address.zip }"  class="form-control" id="Zip" required>
                       </div>
                       <div class="col-12 col-md-6 py-2">
                         <label for="Phone" class="form-label">phone</label>

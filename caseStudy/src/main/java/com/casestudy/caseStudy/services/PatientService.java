@@ -13,8 +13,8 @@ public interface PatientService {
 		public List<Patient> getAllPatients();
 		//get specific patient using id
 		public Patient getPatientById(Integer id);
-//		//get specific doctor using the patient last name
-//		public List<Patient> getPatientByLastName(String lastName);
+		//get specific patient using the patient last name
+		public List<Patient> getPatientByUserName(String username);
 		//update patient information
 		public boolean updatePatientById(Integer id, Patient patient);
 		//delete patient from the database 

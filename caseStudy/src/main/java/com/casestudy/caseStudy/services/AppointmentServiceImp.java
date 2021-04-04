@@ -64,8 +64,8 @@ public class AppointmentServiceImp implements AppointmentService {
 				Appointment appointmentToUpdate = ar.getOne(id);
 				if(appointmentToUpdate!= null) {
 					System.out.println("appointment with id: " + id + " found");
-					if(appointment.getPatientName() != null) appointmentToUpdate.setPatientName(appointment.getPatientName());
-					if(appointment.getDoctorName() != null) appointmentToUpdate.setDoctorName(appointment.getDoctorName());
+					if(appointment.getUserName() != null) appointmentToUpdate.setUserName(appointment.getUserName());
+					if(appointment.getDoctor() != null) appointmentToUpdate.setDoctor(appointment.getDoctor());
 					if(appointment.getDepName() != null) appointmentToUpdate.setDepName(appointment.getDepName());
 					if(appointment.getDate()!= null) appointmentToUpdate.setDate(appointment.getDate());
 					if(appointment.getTime() != null) appointmentToUpdate.setTime(appointment.getTime());
@@ -91,6 +91,31 @@ public class AppointmentServiceImp implements AppointmentService {
 				}finally {
 					return status;
 				}
+	}
+
+	@Override
+	public List<Appointment> getAppByDoctorId(Integer id) {
+		return ar.findByDoctorDocId(id);
+	}
+
+	@Override
+	public Appointment getByUserName(String username) {
+		return ar.findByUserName(username);
+	}
+
+	@Override
+	public Appointment confirmAppointment(Integer id,String username, String email) {
+		Appointment appToConfirm = ar.getOne(id);
+		appToConfirm.setUserName(username);
+		appToConfirm .setEmail(email);
+		appToConfirm.setReserved(true);
+		return ar.save(appToConfirm);
+		
+	}
+
+	@Override
+	public List<Appointment> getAppByDepName(String depName) {
+		return ar.findByDepName(depName);
 	}
 
 }

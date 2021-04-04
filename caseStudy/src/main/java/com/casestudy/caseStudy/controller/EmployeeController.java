@@ -22,9 +22,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.casestudy.caseStudy.entityModels.Address;
 import com.casestudy.caseStudy.entityModels.Employee;
+import com.casestudy.caseStudy.entityModels.User;
+import com.casestudy.caseStudy.services.AddressServiceImp;
 import com.casestudy.caseStudy.services.EmployeeService;
 import com.casestudy.caseStudy.services.EmployeeServiceImp;
+import com.casestudy.caseStudy.services.UserServiceImp;
 
 
 @Controller
@@ -35,6 +39,10 @@ public class EmployeeController {
 	
 	@Autowired
 	EmployeeServiceImp es;
+	@Autowired
+	UserServiceImp us;
+	@Autowired
+	AddressServiceImp as;
 	
 	//display Employees page
 		@RequestMapping("/employees")
@@ -85,22 +93,21 @@ public class EmployeeController {
 				employee.setFirstName(firstName);
 				employee.setLastName(lastName);
 				employee.setOccupation(occupation);
-				employee.setUserName(userName);
-				employee.setEmail(email);
-				employee.setPassword(password);
 				employee.setDateOfBirth(dateOfBirth);
 				employee.setGender(gender);
-				employee.setStreet(street);
-				employee.setApt(apt);
-				employee.setCity(city);
-				employee.setState(state);
-				employee.setZip(zip);
 				employee.setPhone(phone);
 				employee.setFileName(fileName);
 				employee.setFilePath(filePath);
 				employee.setFileType(fileType);
 				employee.setFileSize(fileSize);
 				
+				User newUser = new User(userName,email,password,true,"EMPLOYEE");
+				Address newAddress = new Address(street,apt,city,state,zip);
+				as.addNewAddress(newAddress);
+				us.addNewUser(newUser);
+				
+				employee.setAccount(newUser);
+				employee.setAddress(newAddress);
 				boolean status = es.addNewEmployee(employee);
 				if (status) {
 					
@@ -145,9 +152,28 @@ public class EmployeeController {
 		
 		//register new updated employee information
 		@RequestMapping(value = "/editEmployee", method = RequestMethod.POST)
-		public ModelAndView editDoctor(@ModelAttribute Employee employee) {
+		public ModelAndView editDoctor(@RequestParam("empId") Integer empId, @RequestParam("firstName") String firstName, @RequestParam("lastName")  String lastName, @RequestParam("occupation") String occupation,
+				@RequestParam("userName")  String userName,@RequestParam("email")  String email,
+				@RequestParam("password")  String password,@RequestParam("dateOfBirth")  String dateOfBirth,
+				@RequestParam("gender")  String gender,@RequestParam("street")  String street,
+				@RequestParam("apt")  String apt,@RequestParam("city")  String city,
+				@RequestParam("state")  String state,@RequestParam("zip")  Integer zip,
+				@RequestParam("phone")  Long phone) {
 			ModelAndView mav = new ModelAndView("employee_form");
 			try {
+				Employee employee = new Employee();
+				employee.setEmpId(empId);
+				employee.setFirstName(firstName);
+				employee.setLastName(lastName);
+				employee.setOccupation(occupation);
+				employee.setDateOfBirth(dateOfBirth);
+				employee.setGender(gender);
+				employee.setPhone(phone);
+				
+				User newUser = new User(userName,email,password,true,"EMPLOYEE");
+				Address newAddress = new Address(street,apt,city,state,zip);
+				employee.setAccount(newUser);
+				employee.setAddress(newAddress);
 				es.updateEmployeeById(employee.getEmpId(), employee);
 				String message = "employee updated successfully";
 				mav.addObject("message", message);

@@ -42,9 +42,7 @@
 				    <a class="nav-link py-3" href="appointments"><i class="fa fa-calendar"></i>    appointments </a>
 				</sec:authorize>
                  
-                  <sec:authorize url="/payments">
-				    <a class="nav-link py-3" href="payments"><i class="fa fa-university"></i>    payment </a>
-				</sec:authorize>
+                  
                   
                   <sec:authorize url="/employees">
 				    <a class="nav-link py-3" href="employees"><i class="fa fa-users"></i>    employees </a>

@@ -65,17 +65,12 @@ public class EmployeeServiceImp implements EmployeeService{
 					System.out.println("employee with id: " + id + " found");
 					if(employee.getFirstName() != null) employeeToUpdate.setFirstName(employee.getFirstName());
 					if(employee.getLastName() != null) employeeToUpdate.setLastName(employee.getLastName());
-					if(employee.getUserName() != null) employeeToUpdate.setUserName(employee.getUserName());
 					if(employee.getOccupation() != null) employeeToUpdate.setOccupation(employee.getOccupation());
-					if(employee.getPassword()!= null) employeeToUpdate.setPassword(employee.getPassword());
 					if(employee.getDateOfBirth() != null) employeeToUpdate.setDateOfBirth(employee.getDateOfBirth());
 					if(employee.getGender() != null) employeeToUpdate.setGender(employee.getGender());
-					if(employee.getApt()!= null) employeeToUpdate.setApt(employee.getApt());
-					if(employee.getStreet() != null) employeeToUpdate.setStreet(employee.getStreet());
-					if(employee.getCity()!= null) employeeToUpdate.setCity(employee.getCity());
-					if(employee.getState() != null) employeeToUpdate.setState(employee.getState());
 					if(employee.getPhone() != null) employeeToUpdate.setPhone(employee.getPhone());
-					if(employee.getEmail() != null) employeeToUpdate.setEmail(employee.getEmail());
+					if(employee.getAccount() != null) employeeToUpdate.setAccount(employee.getAccount());
+					if(employee.getAddress() != null) employeeToUpdate.setAddress(employee.getAddress());
 					er.save(employeeToUpdate);
 					status = true;
 				}else {
@@ -98,6 +93,11 @@ public class EmployeeServiceImp implements EmployeeService{
 				}finally {
 					return status;
 				}
+	}
+
+	@Override
+	public List<Employee> getEmployeeByAccountUserName(String username) {
+		return er.findEmployeeByAccountUserName(username);
 	}
 
 }
