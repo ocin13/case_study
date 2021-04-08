@@ -1,7 +1,6 @@
 package com.casestudy.caseStudy.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.validation.Valid;
 
@@ -93,6 +92,7 @@ public class MainController {
 			}
 			//if all the validations are passed register the new user account
 			else {
+				
 				us.addNewUser(user);
 				String message = "registred successefully";
 				mav.addObject("message", message);

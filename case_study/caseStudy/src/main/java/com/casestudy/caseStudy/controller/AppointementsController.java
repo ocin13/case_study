@@ -44,6 +44,8 @@ public class AppointementsController {
 	public ModelAndView  showAppointements() {
 		ModelAndView mav = new ModelAndView("appointments");
 		List<Appointment> appointmentsList = new ArrayList<Appointment>();
+		List<Department> departmentsList = new ArrayList<Department>();
+		departmentsList = ds.getAllDepartments();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("DOCTOR"))) {
 			Doctor doctor = drs.getDoctorByUserName(auth.getName()).get(0);
@@ -63,6 +65,7 @@ public class AppointementsController {
 		else {
 			appointmentsList = as.getAllAppointments();
 		}
+		mav.addObject("departmentsList", departmentsList);
 		mav.addObject("appointmentsList", appointmentsList);
 		return mav;
 	}
@@ -150,6 +153,8 @@ public class AppointementsController {
 		ModelAndView mav = new ModelAndView("appointments");
 		List<Appointment> appointmentsList = new ArrayList<Appointment>();
 		appointmentsList = as.getAllAppointments();
+		List<Department> departmentsList = new ArrayList<Department>();
+		departmentsList = ds.getAllDepartments();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		try {
 			as.deleteAppointmentById(aptId);
@@ -165,6 +170,7 @@ public class AppointementsController {
 		}catch(Exception e) {
 			System.out.print("delete appointment failed");
 		}
+		mav.addObject("departmentsList", departmentsList);
 		return mav;
 	}
 	
@@ -174,6 +180,8 @@ public class AppointementsController {
 		ModelAndView mav = new ModelAndView("appointments");
 		List<Appointment> appointmentsList = new ArrayList<Appointment>();
 		appointmentsList = as.getAllAppointments();
+		List<Department> departmentsList = new ArrayList<Department>();
+		departmentsList = ds.getAllDepartments();
 		
 		//instance of the Authentication made available by spring security
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -213,6 +221,7 @@ public class AppointementsController {
 			appointmentsList = appointmentsListCollector;
 		}
 		
+		mav.addObject("departmentsList", departmentsList);
 		mav.addObject("appointmentsList", appointmentsList);
 		return mav;
 	}
@@ -222,6 +231,8 @@ public class AppointementsController {
 	public ModelAndView cancelApp(@PathVariable("aptId") Integer aptId) {
 		ModelAndView mav = new ModelAndView("appointments");
 		List<Appointment> appointmentsList = new ArrayList<Appointment>();
+		List<Department> departmentsList = new ArrayList<Department>();
+		departmentsList = ds.getAllDepartments();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		Appointment appointment = as.getAppointmentById(aptId);
 		boolean checkIfAppIsAlreadyToken = as.getAppointmentById(aptId).isReserved();
@@ -237,7 +248,40 @@ public class AppointementsController {
 			String message = "this appointment is not reserved";
 			mav.addObject("message", message);
 		}
+		mav.addObject("departmentsList", departmentsList);
 		appointmentsList = as.getAllAppointments();
+		mav.addObject("appointmentsList", appointmentsList);
+		return mav;
+	}
+	
+	//get appointments by department name
+	@RequestMapping(value="/appointmentByDep",method=RequestMethod.GET)
+	public ModelAndView filterAppointmentByDepName(@RequestParam("depName") String depName) {
+		ModelAndView mav = new ModelAndView("appointments");
+		List<Appointment> appointmentsList = new ArrayList<Appointment>();
+		List<Department> departmentsList = new ArrayList<Department>();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("DOCTOR"))) {
+			Doctor doctor = drs.getDoctorByUserName(auth.getName()).get(0);
+			Integer curDocId = doctor.getDocId();
+			List<Appointment> appointmentsListCollector = new ArrayList<Appointment>();
+			as.getAppByDepName(depName).stream().filter(app -> app.getDoctor().getDocId() == curDocId).filter(app -> app.isReserved() == true).forEach(app -> appointmentsListCollector.add(app));
+			appointmentsList = appointmentsListCollector;
+		}else if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("PATIENT")) || auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("USER")))
+		{
+			Appointment appointment = as.getByUserName(auth.getName());
+			mav.addObject("reservedApp", appointment);
+			
+			List<Appointment> appointmentsListCollector = new ArrayList<Appointment>();
+			as.getAppByDepName(depName).stream().filter(app -> app.isReserved() == false).forEach(app -> appointmentsListCollector.add(app));
+			appointmentsList = appointmentsListCollector;
+		}
+		else {
+			appointmentsList = as.getAppByDepName(depName);
+		}
+		
+		departmentsList = ds.getAllDepartments();
+		mav.addObject("departmentsList", departmentsList);
 		mav.addObject("appointmentsList", appointmentsList);
 		return mav;
 	}
